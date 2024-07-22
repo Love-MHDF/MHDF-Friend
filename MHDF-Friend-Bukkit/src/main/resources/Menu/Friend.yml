@@ -1,0 +1,22 @@
+menu:
+  Title: "&b{Friend}"
+  Size: 27
+  ItemList:
+    边框:
+      Type: "GRAY_STAINED_GLASS_PANE"
+      DisplayName: "&f "
+      Slots:
+        - "1-26"
+    好友图标:
+      Type: "PlayerHead-{Friend}"
+      DisplayName: "&e{Friend}"
+      Slot: 12
+    返回好友列表:
+      Type: "RED_STAINED_GLASS_PANE"
+      DisplayName: "&e点击返回好友列表"
+      Lore:
+        - ""
+        - "&b点击返回好友列表"
+      Slot: 26
+      ClickAction:
+        - "[player]|friend"

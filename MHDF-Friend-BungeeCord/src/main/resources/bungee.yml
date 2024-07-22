@@ -1,0 +1,3 @@
+name: MHDF-Friend-BungeeCordHook
+version: '${project.version}'
+main: cn.chengzhiya.mhdffriendbungeecordhook.main

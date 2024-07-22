@@ -1,0 +1,5 @@
+name: MHDF-Friend
+version: '${project.version}'
+main: cn.chengzhiya.mhdffriend.main
+api-version: '1.20'
+load: STARTUP

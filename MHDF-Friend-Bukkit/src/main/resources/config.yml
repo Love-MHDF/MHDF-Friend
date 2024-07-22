@@ -1,0 +1,26 @@
+#数据库设置
+DatabaseSettings:
+  #数据库地址
+  Host: "127.0.0.1:3306"
+  #数据库
+  Database: "MHDFFriend"
+  #数据库账户
+  User: "root"
+  #数据库密码
+  Password: "root"
+
+#群组模式
+BungeeCordMode: false
+
+#部分提示的消息类型
+#(Message ActionBar Toast)
+#Toast模式需要安装UltimateAdvancementAPI
+MessageSettings:
+  #好友加入服务器
+  FriendJoin: Message
+  #好友退出服务器
+  FriendQuit: Message
+  #同意好友请求
+  AcceptRequest: Message
+  #拒绝好友请求
+  DefuseRequest: Message
