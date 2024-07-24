@@ -68,12 +68,12 @@ AdminCommand:
     AlreadyIsFriend: "&e[梦之好友] &c{Player}已经拥有{Friend}的好友了!"
     Done: "&e[梦之好友] &a强制给{Player}添加好友{Friend}成功!"
   forceremove:
-    Usage: "&e/{Command} forceadd <玩家ID> <目标好友ID>"
+    Usage: "&e/{Command} forceremove <玩家ID> <目标好友ID>"
     Description: "&b强制移除好友"
     DontHaveTheFriend: "&e[梦之好友] &c{Player}没有{Friend}的好友!"
     Done: "&e[梦之好友] &a强制移除{Player}的好友{Friend}成功!"
   clear:
-    Usage: "&e/{Command} forceadd <玩家ID>"
+    Usage: "&e/{Command} clear <玩家ID>"
     Description: "&b强制清空好友"
     Done: "&e[梦之好友] &a强制清空{Player}的所有好友成功!"
   reload:

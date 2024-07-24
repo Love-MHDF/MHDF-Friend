@@ -116,7 +116,7 @@ public final class Friend implements TabExecutor {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 1) {
-            List.of("help", "add", "remove", "accept", "defuse");
+            return List.of("help", "add", "remove", "accept", "defuse");
         }
         if (args.length == 2) {
             return onlinePlayerList;

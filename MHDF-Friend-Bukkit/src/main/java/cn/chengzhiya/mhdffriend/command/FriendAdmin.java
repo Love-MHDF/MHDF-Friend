@@ -32,8 +32,12 @@ public final class FriendAdmin implements TabExecutor {
                 }
                 if (args.length == 2) {
                     if (args[0].equals("clear")) {
-                        updatePlayerData(new PlayerData(args[1], new JSONArray()));
-                        sender.sendMessage(i18n("AdminCommand.clear.Done"));
+                        PlayerData playerData = getPlayerData(args[1]);
+                        List<String> friendList = playerData.getFriend().toJavaList(String.class);
+                        for (String friend : friendList) {
+                            removeFriend(args[1],friend);
+                        }
+                        sender.sendMessage(i18n("AdminCommand.clear.Done").replaceAll("\\{Player}",args[1]));
                         return;
                     }
                 }
@@ -83,7 +87,7 @@ public final class FriendAdmin implements TabExecutor {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 1) {
-            List.of("help", "forceadd", "forceremove", "clear", "reload");
+            return List.of("help", "forceadd", "forceremove", "clear", "reload");
         }
         if (args.length == 2) {
             return onlinePlayerList;

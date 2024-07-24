@@ -40,7 +40,7 @@ public final class PluginMessage implements PluginMessageListener {
                     Bukkit.getScheduler().runTaskAsynchronously(main.main, () -> {
                         PlayerData playerData = getPlayerData(playerName);
                         for (String friendName : playerData.getFriend().toJavaList(String.class)) {
-                            sendFriendJoinMessage(playerName, friendName);
+                            sendFriendJoinMessage(friendName, playerName);
                         }
                     });
                     break;
@@ -50,7 +50,7 @@ public final class PluginMessage implements PluginMessageListener {
                     Bukkit.getScheduler().runTaskAsynchronously(main.main, () -> {
                         PlayerData playerData = getPlayerData(playerName);
                         for (String friendName : playerData.getFriend().toJavaList(String.class)) {
-                            sendFriendQuitMessage(playerName, friendName);
+                            sendFriendQuitMessage(friendName, playerName);
                         }
                     });
                     break;

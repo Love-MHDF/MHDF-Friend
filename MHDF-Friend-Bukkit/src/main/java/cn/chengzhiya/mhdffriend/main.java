@@ -46,7 +46,7 @@ public final class main extends JavaPlugin {
 
         new TakeDelay().runTaskTimerAsynchronously(this, 0L, 20L);
         new UpdatePlayerList().runTaskTimerAsynchronously(this, 0L, 20L);
-        new UpdateData().runTaskTimerAsynchronously(this, 0L, 100L);
+        new UpdateData().runTaskTimerAsynchronously(this, 0L, 40L);
 
         if (getConfig().getBoolean("BungeeCordMode")) {
             getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
