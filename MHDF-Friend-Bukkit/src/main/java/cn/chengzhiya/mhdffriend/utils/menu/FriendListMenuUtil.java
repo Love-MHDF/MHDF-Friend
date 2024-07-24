@@ -31,7 +31,7 @@ public final class FriendListMenuUtil {
             List<String> nextPagePlayerFriendList = getPlayerFriendList(player.getName(), FriendSize, FriendSize * (page));
 
             for (String itemID : Objects.requireNonNull(getMenu(friendListMenuFile).getConfigurationSection("menu.ItemList")).getKeys(false)) {
-                String itemType = getMenu(friendListMenuFile).getString("menu.ItemList." + itemID + ".ItemType");
+                String actionType = getMenu(friendListMenuFile).getString("menu.ItemList." + itemID + ".ActionType");
                 String type = getMenu(friendListMenuFile).getString("menu.ItemList." + itemID + ".Type");
                 String displayName = getMenu(friendListMenuFile).getString("menu.ItemList." + itemID + ".DisplayName");
                 List<String> lore = new ArrayList<>();
@@ -39,20 +39,24 @@ public final class FriendListMenuUtil {
                 Integer amount = getMenu(friendListMenuFile).getObject("menu.ItemList." + itemID + ".Amount", Integer.class);
 
                 List<String> slotList = new ArrayList<>();
-                if (getMenu("HomeMenu.yml").getString("menu.ItemList." + itemID + ".Slot") != null) {
-                    slotList.add(getMenu("HomeMenu.yml").getString("menu.ItemList." + itemID + ".Slot"));
+                if (getMenu(friendListMenuFile).getString("menu.ItemList." + itemID + ".Slot") != null) {
+                    slotList.add(getMenu(friendListMenuFile).getString("menu.ItemList." + itemID + ".Slot"));
                 } else {
-                    slotList.addAll(getMenu("HomeMenu.yml").getStringList("menu.ItemList." + itemID + ".Slots"));
+                    slotList.addAll(getMenu(friendListMenuFile).getStringList("menu.ItemList." + itemID + ".Slots"));
                 }
 
-                if (itemType != null) {
-                    switch (itemType) {
+                if (actionType != null) {
+                    switch (actionType) {
                         case "Friend": {
                             int i = 0;
                             if (!playerFriendList.isEmpty()) {
                                 for (String friend : playerFriendList) {
                                     String homeDisplayName = null;
                                     List<String> homeLore = new ArrayList<>();
+
+                                    if (type != null) {
+                                        type = type.replaceAll("\\{Friend}", friend);
+                                    }
 
                                     if (displayName != null) {
                                         homeDisplayName = displayName.replaceAll("\\{Friend}", friend);
@@ -102,7 +106,7 @@ public final class FriendListMenuUtil {
         });
     }
 
-    public static void runAction(Player player, String menuFileName, int page, List<String> actionList) {
+    public static void runAction(Player player, String menuFileName, int page, ItemStack clickItem, List<String> actionList) {
         for (String action : actionList) {
             switch (action) {
                 case "[PageUp]":
@@ -112,6 +116,7 @@ public final class FriendListMenuUtil {
                     openFriendListMenu(player, page + 1);
                     break;
                 case "[Friend]":
+                    handleFriendAction(player, clickItem);
                     break;
                 default:
                     MenuUtil.runAction(player, menuFileName, action.split("\\|"));

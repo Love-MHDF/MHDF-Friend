@@ -86,7 +86,7 @@ public final class MenuUtil {
     public static ItemStack getPlayerHead(String playerName, String displayName, List<String> lore, Integer customModelData, Integer amount) {
         ItemStack item = getItemStack(Material.PLAYER_HEAD, displayName, lore, customModelData, amount);
         SkullMeta meta = (SkullMeta) item.getItemMeta();
-        if (displayName != null) {
+        if (playerName != null) {
             meta.setOwningPlayer(Bukkit.getOfflinePlayer(playerName));
         }
         item.setItemMeta(meta);

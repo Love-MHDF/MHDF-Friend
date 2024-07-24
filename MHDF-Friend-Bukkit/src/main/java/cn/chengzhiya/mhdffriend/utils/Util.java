@@ -7,6 +7,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
+import static cn.chengzhiya.mhdffriend.utils.file.FileUtil.createDir;
+import static cn.chengzhiya.mhdffriend.utils.file.FileUtil.saveResource;
 import static cn.chengzhiya.mhdfpluginapi.Util.ChatColor;
 
 public final class Util {
@@ -16,8 +18,16 @@ public final class Util {
         return ChatColor(PlaceholderAPI.setPlaceholders(player, message));
     }
 
-    public static void saveConfig() {
+    public static void initConfig() {
+        createDir(main.main.getDataFolder());
+        saveResource(main.main.getDataFolder().getPath(), "config.yml", "config.yml", false);
+        saveResource(main.main.getDataFolder().getPath(), "lang.yml", "lang.yml", false);
 
+        File menuFolder = new File(main.main.getDataFolder() + "/Menu");
+        createDir(menuFolder);
+        saveResource(menuFolder.getPath(), "Friend.yml", "Menu/Friend.yml", false);
+        saveResource(menuFolder.getPath(), "FriendList.yml", "Menu/FriendList.yml", false);
+        loadConfig();
     }
 
     public static void loadConfig() {

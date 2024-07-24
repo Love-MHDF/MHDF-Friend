@@ -17,10 +17,13 @@ BungeeCordMode: false
 #Toast模式需要安装UltimateAdvancementAPI
 MessageSettings:
   #好友加入服务器
-  FriendJoin: Message
+  FriendJoin: "Message"
   #好友退出服务器
-  FriendQuit: Message
+  FriendQuit: "Message"
   #同意好友请求
-  AcceptRequest: Message
+  AcceptRequest: "Message"
   #拒绝好友请求
-  DefuseRequest: Message
+  DefuseRequest: "Message"
+
+#好友请求延迟
+Delay: 60

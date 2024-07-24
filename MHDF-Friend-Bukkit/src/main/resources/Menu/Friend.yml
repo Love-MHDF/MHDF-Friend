@@ -1,22 +1,25 @@
 menu:
-  Title: "&b{Friend}"
+  Title: "&b好友详情-{Friend}"
   Size: 27
   ItemList:
     边框:
       Type: "GRAY_STAINED_GLASS_PANE"
       DisplayName: "&f "
       Slots:
-        - "1-26"
+        - "0-26"
     好友图标:
       Type: "PlayerHead-{Friend}"
       DisplayName: "&e{Friend}"
-      Slot: 12
+      Lore:
+        - "&e金币: ?%vault_eco_balance_formatted%?"
+        - "&b点券: ?%playerpoints_points%?"
+      Slot: "11"
     返回好友列表:
       Type: "RED_STAINED_GLASS_PANE"
       DisplayName: "&e点击返回好友列表"
       Lore:
         - ""
         - "&b点击返回好友列表"
-      Slot: 26
+      Slot: "26"
       ClickAction:
         - "[player]|friend"

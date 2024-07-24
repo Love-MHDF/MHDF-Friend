@@ -3,3 +3,13 @@ version: '${project.version}'
 main: cn.chengzhiya.mhdffriend.main
 api-version: '1.20'
 load: STARTUP
+commands:
+  friend:
+    permission: MHDFFriend.default
+  friendadmin:
+    permission: MHDFFriend.op
+permissions:
+  MHDFFriend.default:
+    default: true
+  MHDFFriend.op:
+    default: op
